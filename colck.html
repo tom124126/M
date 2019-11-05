@@ -1,0 +1,159 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--script src="path/to/jquery.min.js"></script-->
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+
+    <link rel="stylesheet" href="css/reset.css" media="screen">
+    <link rel="stylesheet" href="css/wy-mod-banner.css" media="screen">
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="js/clock.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div id="Content1" data-role="page">
+        <div data-role="header" data-position="fixed" data-theme="b">
+            <a class="ui-btn ui-btn-left" href="index.html" data-transition="slide" data-direction="reverse">Back</a>
+        </div>
+
+        <main>
+            <div style="display:none">
+                <div id="top-test-anim" class="num-anim top-anim" style="display:none;">
+                    <div class="top-half-num">2</div>
+                </div>
+                <div id="bottom-test-anim" class="num-anim bottom-anim" style="display:none;">
+                    <div class="bottom-half-num">
+                        <div class="dropper">3</div>
+                    </div>
+                </div>
+            </div>
+            <canvas id="my-canvas"></canvas>
+            <div id="clock">
+                <div class="time-container hours">
+                    <div class="digit">
+                        <div class="fade"> </div>
+                        <span class="num top" id="hour-tens-top">1</span>
+                        <span class="num bottom" id="hour-tens-bottom">
+                        <div class="bottom-container">1</div></span>
+                        <div class="swapper">
+                            <div id="top-hour-tens-anim" class="num-anim top-anim" style="display:none;">
+                                <div class="top-half-num">8</div>
+                            </div>
+                            <div id="bottom-hour-tens-anim" class="num-anim bottom-anim" style="display:none;">
+                                <div class="bottom-half-num">
+                                    <div class="dropper">9</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ring ring-left"></div>
+                        <div class="ring ring-right"></div>
+                    </div>
+                    <div class="digit">
+                        <div class="fade"> </div>
+                        <span class="num top" id="hour-ones-top">3</span>
+                        <span class="num bottom" id="hour-ones-bottom">
+                        <div class="bottom-container">3</div></span>
+                        <div class="swapper">
+                            <div id="top-hour-ones-anim" class="num-anim top-anim" style="display:none;">
+                                <div class="top-half-num">8</div>
+                            </div>
+                            <div id="bottom-hour-ones-anim" class="num-anim bottom-anim" style="display:none;">
+                                <div class="bottom-half-num">
+                                    <div class="dropper">9</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ring ring-left"></div>
+                        <div class="ring ring-right"></div>
+                    </div>
+                </div>
+                <div class="time-container minutes">
+                    <div class="digit">
+                        <div class="fade"> </div>
+                        <span class="num top" id="minute-tens-top">4</span>
+                        <span class="num bottom" id="minute-tens-bottom">
+                        <div class="bottom-container">4</div></span>
+                        <div class="swapper">
+                            <div id="top-minute-tens-anim" class="num-anim top-anim" style="display:none;">
+                                <div class="top-half-num">8</div>
+                            </div>
+                            <div id="bottom-minute-tens-anim" class="num-anim bottom-anim" style="display:none;">
+                                <div class="bottom-half-num">
+                                    <div class="dropper">9</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ring ring-left"></div>
+                        <div class="ring ring-right"></div>
+                    </div>
+                    <div class="digit">
+                        <div class="fade"> </div>
+                        <span class="num top" id="minute-ones-top">3</span>
+                        <span class="num bottom" id="minute-ones-bottom">
+                        <div class="bottom-container">3</div></span>
+                        <div class="swapper">
+                            <div id="top-minute-ones-anim" class="num-anim top-anim" style="display:none;">
+                                <div class="top-half-num">8</div>
+                            </div>
+                            <div id="bottom-minute-ones-anim" class="num-anim bottom-anim" style="display:none;">
+                                <div class="bottom-half-num">
+                                    <div class="dropper">9</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ring ring-left"></div>
+                        <div class="ring ring-right"></div>
+                    </div>
+                </div>
+                <div class="time-container seconds">
+                    <div class="digit">
+                        <div class="fade"> </div>
+                        <span class="num top" id="second-tens-top">5</span>
+                        <span class="num bottom" id="second-tens-bottom">
+                        <div class="bottom-container">5</div></span>
+                        <div class="swapper">
+                            <div id="top-second-tens-anim" class="num-anim top-anim" style="display:none;">
+                                <div class="top-half-num">8</div>
+                            </div>
+                            <div id="bottom-second-tens-anim" class="num-anim bottom-anim" style="display:none;">
+                                <div class="bottom-half-num">
+                                    <div class="dropper">9</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ring ring-left"></div>
+                        <div class="ring ring-right"></div>
+                    </div>
+                    <div class="digit">
+                        <div class="fade"> </div>
+                        <span class="num top" id="second-ones-top">3</span>
+                        <span class="num bottom" id="second-ones-bottom">
+                        <div class="bottom-container">2</div></span>
+                        <div class="swapper">
+                            <div id="top-second-ones-anim" class="num-anim top-anim" style="display:none;">
+                                <div class="top-half-num">2</div>
+                            </div>
+                            <div id="bottom-second-ones-anim" class="num-anim bottom-anim" style="display:none;">
+                                <div class="bottom-half-num">
+                                    <div class="dropper">3</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ring ring-left"></div>
+                        <div class="ring ring-right"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+</body>
+
+</html>

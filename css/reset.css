@@ -1,0 +1,85 @@
+﻿/*CSS Reset*/
+
+body,
+div,
+ul,
+ol,
+li,
+hgroup,
+menu,
+nav,
+section {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #e6e6e6
+}
+
+body,
+input,
+button,
+textarea,
+select {
+    font: 12px/1.5 Tahoma, Helvetica, Arial;
+    color: #4c4c4c;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+fieldset,
+img {
+    border: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: #d30000;
+    text-decoration: none;
+}
+
+a:hover,
+a:active {
+    text-decoration: underline;
+}
+
+.wrapper {
+    position: relative;
+    z-index: 1;
+    min-width: 100VW;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    background: url('img/eyes.jpeg')center center fixed;
+    background-size: cover;
+}
+
+
+}
+.clearfix:after {
+    display: block;
+    height: 0px;
+    overflow: hidden;
+    clear: both;
+    content: ""
+}
+.clearfix {
+    *zoom: 1;
+}

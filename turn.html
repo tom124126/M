@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>eZTravel APP</title>
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="css/reset.css" media="screen">
+    <link rel="stylesheet" href="css/wy-mod-banner.css" media="screen">
+    <style>
+        a:link {
+            color: black;
+            text-decoration: none;
+        }
+        
+        a:visited {
+            color: black;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: black;
+            text-decoration: none;
+        }
+        
+        a:active {
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div is="page" id="home" data-role="page">
+        <div data-role="page" class="jqm-demos ui-responsive-panel" id="panel-responsive-page1" data-title="Panel responsive page" data-url="panel-responsive-page1"></div>
+        <div data-role="header" data-position="fixed" style="background:-webkit-linear-gradient(rgb(143, 189, 207),rgb(25,24,44));">
+            <h1 style="color:white;text-align:center;font-size:24px;">WxW</h1>
+            <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+            <a class="ui-btn ui-btn-right ui-btn-icon-left ui-icon-info ui-btn-icon-notext ui-corner-all" style="margin:12px;"></a>
+
+        </div>
+
+        <div data-role="panel" data-display="overlay" data-theme="b" id="nav-panel">
+
+            <ul data-role="listview">
+
+                <li data-icon="delete"><a href="#" data-rel="close">Close menu</a></li>
+
+                <li><a href="index.html">首頁</a></li>
+
+                <li><a href="#panel-responsive-page2">Ajax Navigation</a></li>
+
+                <li><a href="#panel-responsive-page2">Autocomplete</a></li>
+            </ul>
+        </div>
+        <!-- /panel -->
+
+
+
+        <div is="footer" data-position="fixed" data-role="footer">
+            <div is="navbar" data-role="navbar">
+                <ul>
+                    <li is="navbtn">
+                        <a data-icon="home" class="ui-btn-active " href="b.html" data-transition="slideup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">
+                                    BtnA</a>
+
+                    </li>
+                    <li is="navbtn">
+                        <a data-icon="star" href="a.html">BtnB</a>
+                    </li>
+
+                </ul>
+                <h3 style="text-align:center;">@NFU eZTravel Company</h3>
+            </div>
+            <!-- /navbar -->
+        </div>
+
+        <div class="wrapper" role="main" data-position="fixed" data-role="main" class="ui-content">
+
+            <div class="wy-mod-banner">
+                <div id="_banners" class="banners">
+                    <div class="banner banner4">
+                        <img src="images/banner4.jpg" style="height:100vh ;">
+                    </div>
+                    <div class=" banner banner3 ">
+                        <img src="images/banner3.jpg " style="height:100vh ;">
+                    </div>
+                    <div class="banner banner2 ">
+                        <img src="images/banner2.jpg " style="height:100vh ;">
+
+                    </div>
+                    <div class="banner banner1 ">
+                        <img src="images/banner1.jpg " style="height:100vh ;">
+
+                    </div>
+                </div>
+                <div id="_focus " class="focus ">
+                    <a data-index="0 " href="# " class="on ">
+                        <span class="bg-b "></span>
+                        <span class="inner "></span>
+                    </a>
+                    <a data-index="1 " href="# ">
+                        <span class="bg-b "></span>
+                        <span class="inner "></span>
+                    </a>
+                    <a data-index="2 " href="# ">
+                        <span class="bg-b "></span>
+                        <span class="inner "></span>
+                    </a>
+                    <a data-index="3 " href="# ">
+                        <span class="bg-b "></span>
+                        <span class="inner "></span>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+        <script type="text/javascript " src="js/jquery-1.8.3.min.js "></script>
+        <script type="text/javascript ">
+            var glume = function(banners_id, focus_id) {
+                this.$ctn = $('#' + banners_id);
+                this.$focus = $('#' + focus_id);
+                this.$adLis = null;
+                this.$btns = null;
+                this.switchSpeed = 3; //自动播放间隔(s)
+                this.defOpacity = 1;
+                this.crtIndex = 0;
+                this.adLength = 0;
+                this.timerSwitch = null;
+                this.init();
+            };
+            glume.prototype = {
+                fnNextIndex: function() {
+                    return (this.crtIndex >= this.adLength - 1) ? 0 : this.crtIndex + 1;
+                },
+                //动画切换
+                fnSwitch: function(toIndex) {
+                    if (this.crtIndex == toIndex) {
+                        return;
+                    }
+                    this.$adLis.css('zIndex', 0);
+                    this.$adLis.filter(':eq(' + this.crtIndex + ')').css('zIndex', 2);
+                    this.$adLis.filter(':eq(' + toIndex + ')').css('zIndex', 1);
+                    this.$btns.removeClass('on');
+                    this.$btns.filter(':eq(' + toIndex + ')').addClass('on');
+                    var me = this;
+
+                    $(this.$adLis[this.crtIndex]).animate({
+                        opacity: 0
+                    }, 1000, function() {
+                        me.crtIndex = toIndex;
+                        $(this).css({
+                            opacity: me.defOpacity,
+                            zIndex: 0
+                        });
+                    });
+                },
+                fnAutoPlay: function() {
+                    this.fnSwitch(this.fnNextIndex());
+                },
+                fnPlay: function() {
+                    var me = this;
+                    me.timerSwitch = window.setInterval(function() {
+                        me.fnAutoPlay();
+                    }, me.switchSpeed * 1000);
+                },
+                fnStopPlay: function() {
+                    window.clearTimeout(this.timerSwitch);
+                    this.timerSwitch = null;
+                },
+
+                init: function() {
+                    this.$adLis = this.$ctn.children();
+                    this.$btns = this.$focus.children();
+                    this.adLength = this.$adLis.length;
+
+                    var me = this;
+                    //点击切换
+                    this.$focus.on('click', 'a', function(e) {
+                        e.preventDefault();
+                        var index = parseInt($(this).attr('data-index'), 10)
+                        me.fnSwitch(index);
+                    });
+                    this.$adLis.filter(':eq(' + this.crtIndex + ')').css('zIndex', 2);
+                    this.fnPlay();
+
+                    //hover时暂停动画
+                    this.$ctn.hover(function() {
+                        me.fnStopPlay();
+                    }, function() {
+                        me.fnPlay();
+                    });
+
+                    if ($.browser.msie && $.browser.version < 7) {
+                        this.$btns.hover(function() {
+                            $(this).addClass('hover');
+                        }, function() {
+                            $(this).removeClass('hover');
+                        });
+                    }
+                }
+            };
+            var player1 = new glume('_banners', '_focus');
+        </script>
+</body>
+
+</html>
